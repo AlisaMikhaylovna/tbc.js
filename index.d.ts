@@ -1540,7 +1540,7 @@ declare module 'tbc-js' {
     }
 
     export class Multisig {
-        constructor(ft: FT, network?: "mainnet" | "testnet");
+        constructor(ft?: FT, network?: "mainnet" | "testnet");
         createMultisigAddress(pubkeys: PublicKey[], signatureCount: number, publicKeyCount: number): string;
         getMultisigLockScript(address: string): string;
         createP2pkhToMultisigTransaction(fromAddress: string, toAddress: string, satoshis: number, privateKey: PrivateKey);
