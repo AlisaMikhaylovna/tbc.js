@@ -8,7 +8,7 @@
 
 // TypeScript Version: 3.0
 
-declare module 'tbc' {
+declare module 'tbc-js' {
     /**
      * Opcode class, representing opcodes used in Bitcoin Script
      * @constructor
