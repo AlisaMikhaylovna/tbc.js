@@ -1535,8 +1535,14 @@ declare module 'tbc-js' {
 
     interface MultiTxRaw {
         txraw: string;
-        script: string[];
-        satoshis: number[];
+        amounts: number[];
+    }
+
+    interface Unspent {
+        tx_hash: string;
+        tx_pos: number;
+        height: number;
+        value: number;
     }
 
     export class Multisig {
@@ -1545,16 +1551,16 @@ declare module 'tbc-js' {
         getMultisigLockScript(address: string): string;
         createP2pkhToMultisigTransaction(fromAddress: string, toAddress: string, satoshis: number, privateKey: PrivateKey);
         fromMultisigTransaction(fromAddress: string, toAddress: string, satoshis: number): Promise<MultiTxRaw>;
-        signfromMultisigTransaction(multiTxraw: MultiTxRaw, privateKey: PrivateKey): string | string[];
-        createFromMultisigTransaction(multiTxraw: MultiTxRaw, sigs: string[], pubkeys: string);
+        signfromMultisigTransaction(fromAddress: string, multiTxraw: MultiTxRaw, privateKey: PrivateKey): string[];
+        createFromMultisigTransaction(fromAddress: string, multiTxraw: MultiTxRaw, sigs: string[][], pubkeys: string)
         p2pkhToMultiMintFT(privateKey_from: PrivateKey, address_to: string);
         fromMultisigMintFt(address_from: string, address_to: string): Promise<MultiTxRaw>;
-        signfromMultisigMintFTTransaction(multiTxraw: MultiTxRaw, privateKey: PrivateKey): string | string[];
-        createFromMultisigMintFTTransaction(multiTxraw: MultiTxRaw, sigs: string[], pubkeys: string);
+        signfromMultisigMintFTTransaction(address_from: string, multiTxraw: MultiTxRaw, privateKey: PrivateKey): string[];
+        createFromMultisigMintFTTransaction(address_from: string, multiTxraw: MultiTxRaw, sigs: string[][], pubkeys: string);
         p2pkhToMultiFtTransfer(privateKey_from: PrivateKey, address_to: string, amount: number);
         fromMultisigTransferFt(privateKey_from: PrivateKey, address_from: string, address_to: string, amount: number): Promise<MultiTxRaw>;
-        signfromMultisigTransferFTTransaction(multiTxraw: MultiTxRaw, privateKey: PrivateKey): string | string[];
-        createFromMultisigTransferFTTransaction(multiTxraw: MultiTxRaw, sigs: string[], pubkeys: string);
+        signfromMultisigTransferFTTransaction(fromAddress: string, multiTxraw: MultiTxRaw, privateKey: PrivateKey): string[];
+        createFromMultisigTransferFTTransaction(fromAddress: string, multiTxraw: MultiTxRaw, sigs: string[][], pubkeys: string);
     }
 
     interface NFTData {
