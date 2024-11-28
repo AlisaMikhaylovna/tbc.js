@@ -1546,6 +1546,9 @@ declare module 'tbc-js' {
     }
 
     export class Multisig {
+        ft: FT | undefined;
+        network: "mainnet" | "testnet";
+
         constructor(config?: { ft?: FT, network?: "testnet" | "mainnet" });
         createMultisigAddress(pubkeys: PublicKey[], signatureCount: number, publicKeyCount: number): string;
         getSignatureAndPublicKeyCount(address: string): { signatureCount: number, publicKeyCount: number };
