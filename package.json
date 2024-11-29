@@ -1,6 +1,6 @@
 {
   "name": "tbc-js",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A library for tbc functionality",
   "ide": true,
   "main": "index.js",

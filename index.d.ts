@@ -1550,6 +1550,7 @@ declare module 'tbc-js' {
         network: "mainnet" | "testnet";
 
         constructor(config?: { ft?: FT, network?: "testnet" | "mainnet" });
+        getCombineHash(address: string): string;
         createMultisigAddress(pubkeys: PublicKey[], signatureCount: number, publicKeyCount: number): string;
         getSignatureAndPublicKeyCount(address: string): { signatureCount: number, publicKeyCount: number };
         getMultisigLockScript(address: string): string;
