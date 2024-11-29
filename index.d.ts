@@ -1553,6 +1553,7 @@ declare module 'tbc-js' {
         createMultisigAddress(pubkeys: PublicKey[], signatureCount: number, publicKeyCount: number): string;
         getSignatureAndPublicKeyCount(address: string): { signatureCount: number, publicKeyCount: number };
         getMultisigLockScript(address: string): string;
+        verifyMultisigAddress(pubkeys: PublicKey[], address: string): boolean;
         createP2pkhToMultisigTransaction(fromAddress: string, toAddress: string, satoshis: number, privateKey: PrivateKey);
         fromMultisigTransaction(fromAddress: string, toAddress: string, satoshis: number): Promise<MultiTxRaw>;
         signfromMultisigTransaction(fromAddress: string, multiTxraw: MultiTxRaw, privateKey: PrivateKey): string[];
