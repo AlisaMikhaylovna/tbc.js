@@ -1555,7 +1555,7 @@ declare module 'tbc-js' {
         getSignatureAndPublicKeyCount(address: string): { signatureCount: number, publicKeyCount: number };
         getMultisigLockScript(address: string): string;
         verifyMultisigAddress(pubkeys: string[], address: string): boolean;
-        createMultisigWalletTransaction(address_from: string, pubkeys: string[], signatureCount: number, publicKeyCount: number, satoshis: number, privateKey: PrivateKey): Promise<string>
+        createMultisigWalletTransaction(address_from: string, pubkeys: string[], signatureCount: number, publicKeyCount: number, satoshis: number, privateKey: PrivateKey): Promise<string>;
         createP2pkhToMultisigTransaction(fromAddress: string, toAddress: string, satoshis: number, privateKey: PrivateKey): Promise<string>;
         fromMultisigTransaction(fromAddress: string, toAddress: string, satoshis: number): Promise<MultiTxRaw>;
         signfromMultisigTransaction(fromAddress: string, multiTxraw: MultiTxRaw, privateKey: PrivateKey): string[];
@@ -1580,7 +1580,7 @@ declare module 'tbc-js' {
     export class NFT {
         constructor(network?: "mainnet" | "testnet");
         createNFT(fromAddress: Address, toAddress: Address, privateKey: PrivateKey, data: NFTData, flag?: string): Promise<string>;
-        transferNFT(fromAddress: Address, toAddress: Address, privateKey: PrivateKey, data: NFTData, txId: string, flag: string): Promise<string>
+        transferNFT(fromAddress: Address, toAddress: Address, privateKey: PrivateKey, data: NFTData, txId: string, flag?: string): Promise<string>
     }
 }
 
